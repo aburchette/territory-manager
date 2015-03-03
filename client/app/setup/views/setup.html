@@ -1,0 +1,8 @@
+<div class="container">
+  <h3>Setup View</h3>
+  <ul>
+    <li ng-repeat="item in setupNav"><a ui-sref="{{ item.sref }}">{{ item.title }}</a></li>
+  </ul>
+
+  <ui-view></ui-view>
+</div>

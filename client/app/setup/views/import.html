@@ -1,0 +1,35 @@
+<section ng-controller="ImportCtrl">
+  <h3>Import view</h3>
+
+  <p>Please choose what to import</p>
+
+  <select ng-model="selectDatabase" ng-options="options as options.label for options in databaseOptions"></select>
+
+  <!--<select name="selectDatabase" id="selectDatabase" ng-model="selectDatabase">-->
+
+  <!--<option value="{{item.value}}" ng-repeat="item in databaseName">{{item.name}}</option>-->
+  <!--</select>-->
+
+  <ng-file-to-json result="obj" type-field="true"></ng-file-to-json>
+
+  <div ng-if="result">
+    <h5>Total rows returned: {{ noRows }}</h5>
+    <p>Which database should this be imported to? <span>
+        </span></p>
+    <div class="table-container">
+      <table class="table table-striped table-small table-bordered table-responsive">
+        <tr>
+          <th ng-repeat="header in result.headers">{{ header }}</th>
+        </tr>
+        <!--<tr>-->
+          <!--<td ng-repeat="header in result.headers"><span data="{{ header }}" ng-model="item-header"></span></td>-->
+        <!--</tr>-->
+
+        <tr ng-repeat="row in result.rows">
+          <td ng-repeat="column in row track by $index">{{ column }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</section>
+
