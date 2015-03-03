@@ -1,8 +1,7 @@
-<div class="navbar navbar-default navbar-static-top" ng-controller="SiteAdminCtrl">
+<div class="navbar navbar-default navbar-static-bottom" ng-controller="FooterCtrl">
   <div class="container">
-    <div class="navbar-collapse collapse" id="site-admin">
+    <div id="footer">
       <ul class="nav navbar-nav">
-        <li>Site Admin</li>
         <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
             <a ng-href="{{item.link}}">{{item.title}}</a>
         </li>
