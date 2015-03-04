@@ -3,7 +3,7 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
-var AgentSchema = new Schema({
+var PersonSchema = new Schema({
   _id: {
     type: Number
   },
@@ -31,4 +31,4 @@ var AgentSchema = new Schema({
   }
 });
 
-module.exports = mongoose.model('Agent', AgentSchema);
+module.exports = mongoose.model('Person', PersonSchema);

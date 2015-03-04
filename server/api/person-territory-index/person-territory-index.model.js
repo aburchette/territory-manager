@@ -3,7 +3,7 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
-var AgentTerritoryIndexSchema = new Schema({
+var PersonTerritoryIndexSchema = new Schema({
   created: {
     type: Date,
     default: Date.now
@@ -12,9 +12,9 @@ var AgentTerritoryIndexSchema = new Schema({
     type: Number,
     required: 'Group ID is required'
   },
-  agent_id: {
+  person_id: {
     type: Number,
-    ref: 'Agent'
+    ref: 'Person'
   },
   territory_id: {
     type: Number,
@@ -29,4 +29,4 @@ var AgentTerritoryIndexSchema = new Schema({
   }
 });
 
-module.exports = mongoose.model('AgentTerritoryIndex', AgentTerritoryIndexSchema);
+module.exports = mongoose.model('PersonTerritoryIndex', PersonTerritoryIndexSchema);

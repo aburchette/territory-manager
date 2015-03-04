@@ -1,7 +1,7 @@
 'use strict';
 
 var express = require('express');
-var controller = require('./agent-territory-index.controller');
+var controller = require('./person-territory-index.controller');
 
 var router = express.Router();
 

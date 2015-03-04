@@ -13,8 +13,8 @@ module.exports = function(app) {
   app.use('/api/queued-records', require('./api/queued-record'));
   app.use('/api/logs', require('./api/log'));
   app.use('/api/configs', require('./api/config'));
-  app.use('/api/agent-territory-indexes', require('./api/agent-territory-index'));
-  app.use('/api/agents', require('./api/agent'));
+  app.use('/api/person-territory-indexes', require('./api/person-territory-index'));
+  app.use('/api/people', require('./api/person'));
   app.use('/api/groups', require('./api/group'));
   app.use('/api/records', require('./api/record'));
   app.use('/api/territories', require('./api/territory'));
@@ -22,7 +22,7 @@ module.exports = function(app) {
   app.use('/api/users', require('./api/user'));
 
   app.use('/auth', require('./auth'));
-  
+
   // All undefined asset or api routes should return a 404
   app.route('/:url(api|auth|components|app|bower_components|assets)/*')
    .get(errors[404]);

@@ -22,8 +22,8 @@ function onConnect(socket) {
   require('../api/queued-record/queued-record.socket').register(socket);
   require('../api/log/log.socket').register(socket);
   require('../api/config/config.socket').register(socket);
-  require('../api/agent-territory-index/agent-territory-index.socket').register(socket);
-  require('../api/agent/agent.socket').register(socket);
+  require('../api/person-territory-index/person-territory-index.socket').register(socket);
+  require('../api/person/person.socket').register(socket);
   require('../api/group/group.socket').register(socket);
   require('../api/record/record.socket').register(socket);
   require('../api/territory/territory.socket').register(socket);

@@ -4,21 +4,21 @@
 
 'use strict';
 
-var Agent = require('./agent.model');
+var Person = require('./person.model');
 
 exports.register = function(socket) {
-  Agent.schema.post('save', function (doc) {
+  Person.schema.post('save', function (doc) {
     onSave(socket, doc);
   });
-  Agent.schema.post('remove', function (doc) {
+  Person.schema.post('remove', function (doc) {
     onRemove(socket, doc);
   });
 }
 
 function onSave(socket, doc, cb) {
-  socket.emit('agent:save', doc);
+  socket.emit('person:save', doc);
 }
 
 function onRemove(socket, doc, cb) {
-  socket.emit('agent:remove', doc);
+  socket.emit('person:remove', doc);
 }
