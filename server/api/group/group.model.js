@@ -4,9 +4,20 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var GroupSchema = new Schema({
-  name: String,
-  info: String,
-  active: Boolean
+  _id: {
+    type: Number
+  },
+  created: {
+    type: Date,
+    default: Date.now
+  },
+  name: {
+    type: String
+  },
+  active: {
+    type: Boolean,
+    default: true
+  }
 });
 
 module.exports = mongoose.model('Group', GroupSchema);

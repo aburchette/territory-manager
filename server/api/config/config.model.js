@@ -4,9 +4,18 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var ConfigSchema = new Schema({
-  name: String,
-  info: String,
-  active: Boolean
+  group_id: {
+    type: Number,
+    required: 'Group ID required'
+  },
+  name: {
+    type: String,
+    unique: true,
+    trim: true
+  },
+  value: {
+    type: String
+  }
 });
 
 module.exports = mongoose.model('Config', ConfigSchema);
