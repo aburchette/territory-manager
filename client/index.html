@@ -9,7 +9,7 @@
     <base href="/">
     <title></title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width initial-scale=1">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(client) app/vendor.css -->
       <!-- bower:css -->
@@ -27,7 +27,7 @@
     <![endif]-->
 
     <!-- navbars: site admin, navbar, and statistics -->
-    <div ng-show="isSiteAdmin()" ng-include="'components/site-admin/site-admin.html.html'"></div>
+    <div ng-show="isSiteAdmin()" ng-include="'components/site-admin/site-admin.html'"></div>
     <div ng-include="'components/navbar/navbar.html'"></div>
     <div ng-include="'components/stats/stats.html'"></div>
 
@@ -35,7 +35,7 @@
     <div ui-view=""></div>
 
     <!-- footer -->
-    <div ng-include="'components/stats/stats.html'"></div>
+    <div ng-include="'components/footer/footer.html'"></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>

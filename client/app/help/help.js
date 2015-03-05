@@ -5,7 +5,12 @@ angular.module('tmApp')
     $stateProvider
       .state('help', {
         url: '/help',
-        templateUrl: 'app/help/help.html',
+        templateUrl: 'app/help/views/help.html',
         controller: 'HelpCtrl'
+      })
+      .state('help.chat', {
+        url: '/chat',
+        templateUrl: 'app/help/views/chat.html',
+        controller: 'ChatCtrl'
       });
   });

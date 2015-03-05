@@ -4,10 +4,20 @@
  *
  */
 angular.module('tmApp')
-  .factory('Config', function () {
-    var config = {};
+  .factory('Config', ['$resource', function ($resource) {
 
-    config.group = '';
+    return $resource('/api/config/:id', { id: '@_id' }, {
+      // custom method for import
+      saveArray: {
+        method: 'POST',
+        isArray: true
+      },
 
-    return config;
-  });
+      // cache the options to prevent repeat loading
+      list: {
+        method: 'GET',
+        cache: true
+      }
+    });
+
+  }]);

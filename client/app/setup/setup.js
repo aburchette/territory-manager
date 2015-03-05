@@ -8,17 +8,17 @@ angular.module('tmApp')
         templateUrl: 'app/setup/views/setup.html',
         controller: 'SetupCtrl'
       })
-      .state('setup.agents', {
-        url: '/agents',
-        templateUrl: 'app/setup/views/agents.html'
+      .state('setup.people', {
+        url: '/people',
+        templateUrl: 'app/setup/views/people.html'
       })
-      .state('setup.agents.detail', {
+      .state('setup.people.detail', {
         url: '/:id',
-        templateUrl: 'app/setup/views/agent.html'
+        templateUrl: 'app/setup/views/person.html'
       })
-      .state('setup.agents.detail.edit', {
-        url: '/agents',
-        templateUrl: 'app/setup/views/agent-edit.html'
+      .state('setup.people.detail.edit', {
+        url: '/edit',
+        templateUrl: 'app/setup/views/person-edit.html'
       })
 
       .state('setup.streets', {

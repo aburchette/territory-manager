@@ -3,17 +3,17 @@
 angular.module('tmApp')
   .controller('StatsCtrl', ['$scope', 'Territory', 'Record',
     function ($scope, Territory, Record) {
-      var totalTerritories = Territory.getTotal() || 0,
-          totalRecords = Record.getTotal() || 0;
+      var territories = Territory.query(),
+          records = Record.query();
 
       $scope.menu = [{
         'text': 'Total Territories:',
         'link': '/territories',
-        'number': totalTerritories
+        'number': territories.length
       },{
         'text': 'Total Records',
         'link': '/records',
-        'number': totalRecords
+        'number': records.length
       }];
 
     }]);

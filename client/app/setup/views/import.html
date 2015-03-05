@@ -3,14 +3,19 @@
 
   <p>Please choose what to import</p>
 
-  <select ng-model="selectDatabase" ng-options="options as options.label for options in databaseOptions"></select>
+  <form ng-submit="submitImport()">
+    <select ng-model="selectDatabase" ng-options="options as options.label for options in databaseOptions"></select>
 
-  <!--<select name="selectDatabase" id="selectDatabase" ng-model="selectDatabase">-->
-
-  <!--<option value="{{item.value}}" ng-repeat="item in databaseName">{{item.name}}</option>-->
-  <!--</select>-->
+    <input type="submit" value="Import" />
+  </form>
 
   <ng-file-to-json result="obj" type-field="true"></ng-file-to-json>
+
+  <div ng-if="message">
+    <div ng-if="message.errors">
+      <p class="alert alert-danger" ng-repeat="item in message.errors"><strong>Error:</strong> {{ item.message }}</p>
+    </div>
+  </div>
 
   <div ng-if="result">
     <h5>Total rows returned: {{ noRows }}</h5>
