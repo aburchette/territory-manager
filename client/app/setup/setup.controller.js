@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('tmApp')
-  .controller('SetupCtrl', function ($scope) {
+  .controller('SetupCtrl', ['$scope', function ($scope) {
     $scope.setupNav = [
       { title: 'People', sref: 'setup.people' },
       { title: 'Map', sref: 'setup.map' },
       { title: 'Streets', sref: 'setup.streets' },
       { title: 'Import', sref: 'setup.import' }
     ];
-  })
+  }])
   .controller('ImportCtrl', ['$scope', '$http', '$stateParams', 'Import',
     function ($scope, $http, $stateParams, Import) {
       $scope.databaseOptions = Import.databaseOptions;

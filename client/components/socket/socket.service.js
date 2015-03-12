@@ -2,7 +2,7 @@
 'use strict';
 
 angular.module('tmApp')
-  .factory('socket', function(socketFactory) {
+  .factory('socket', ['$timeout', 'socketFactory', function($timeout, socketFactory) {
 
     // socket.io now auto-configures its connection when we ommit a connection url
     var ioSocket = io('', {
@@ -15,8 +15,33 @@ angular.module('tmApp')
       ioSocket: ioSocket
     });
 
+    function on(event, cb){
+      if(ioSocket){
+        ioSocket.on(event, function(data){
+          $timeout(function(){
+            cb(data);
+          })
+        })
+      }
+    }
+
+    function emit(event, data){
+      if(ioSocket){
+        ioSocket.emit(event, data);
+      }
+    }
+
+    function removeListener(event){
+      if(ioSocket){
+        ioSocket.removeListener(event);
+      }
+    }
+
     return {
       socket: socket,
+      on: on,
+      emit: emit,
+      removeListener: removeListener,
 
       /**
        * Register listeners to sync an array with updates on a model
@@ -71,4 +96,4 @@ angular.module('tmApp')
         socket.removeAllListeners(modelName + ':remove');
       }
     };
-  });
+  }]);

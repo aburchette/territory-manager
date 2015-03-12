@@ -14,12 +14,12 @@ angular.module('tmApp')
 
     $scope.sendMessage = function(){
       var message = {
-        text: this.messageText
+        text: $scope.messageText
       };
 
       socket.emit('chatMessage', message);
 
-      this.messageText = '';
+      $scope.messageText = '';
     };
 
     $scope.$on('$destroy', function(){
