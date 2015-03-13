@@ -15,6 +15,19 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
     padding: 0.2em 0;
 }
 
+.pagination {
+  li {
+    display: inline;
+    padding: 0 5px;
+  }
+  li.active {
+    a {
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+    }
+  }
+}
+
 // Component styles are injected through grunt
 // injector
 @import 'account/login/login.scss';

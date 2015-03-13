@@ -54,14 +54,26 @@ angular.module('tmApp')
     };
 
     $scope.range = function(){
-      var t = $scope.countPages();
-      if($scope.page < 5){
-        return [0,1,2,3,4,5,6,7,8,9];
-      } else if($scope.page > (t - 5)){
-        return [t-9,t-8,t-7,t-6,t-5,t-4,t-3,t-2,t-1,t];
+      var totalPages = $scope.countPages(),
+        rangeCount = totalPages > 9 ? 9 : totalPages,
+        middlePageCount = Math.floor(rangeCount / 2),
+        a = [],
+        startNumber;
+
+      if($scope.page < middlePageCount){
+        startNumber = 0;
+      } else if($scope.page > (totalPages - middlePageCount)){
+        startNumber = totalPages - (middlePageCount * 2);
       } else {
-        return [$scope.page-4,$scope.page-3,$scope.page-2,$scope.page-1,$scope.page,$scope.page+1,$scope.page+2,$scope.page+3,$scope.page+4,$scope.page+5];
+        startNumber = ($scope.page - middlePageCount);
       }
+      console.log(startNumber);
+
+      for(var c = 0; c < rangeCount; c++){
+        a.push(c + startNumber);
+      }
+
+      return a;
     }
 
   }]);
