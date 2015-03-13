@@ -13,13 +13,12 @@ var RecordSchema = new Schema({
     default: true
   },
   group_id: {
-    type: Number,
-    required: 'Group ID is required'
+    type: Number
   },
   territory_id: {
     type: Number
   },
-  contact_name: {
+  name: {
     type: String
   },
   address: {
@@ -38,6 +37,9 @@ var RecordSchema = new Schema({
     required: 'City is required',
     default: '',
     trim: true
+  },
+  zip: {
+    type: String
   },
   state: {
     type: String,

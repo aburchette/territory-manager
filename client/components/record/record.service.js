@@ -5,9 +5,12 @@ angular.module('tmApp')
 
       return $resource('/api/records/:id', { id: '@_id' }, {
         // custom method for import
-        saveArray: {
+        'saveArray': {
           method: 'POST',
           isArray: true
+        },
+        'update': {
+          method: 'PUT'
         }
       });
 

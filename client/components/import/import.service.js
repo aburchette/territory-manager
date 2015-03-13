@@ -11,11 +11,12 @@ angular.module('tmApp')
       {value: 'Record', label: 'Records', validFields: [
         { name: 'active', type: 'boolean number' },
         { name: 'territory_id', type: 'number string' },
-        { name: 'contact_name', type: 'string' },
+        { name: 'name', type: 'string' },
         { name: 'address', type: 'string' },
         { name: 'address2', type: 'string' },
         { name: 'city', type: 'string' },
         { name: 'state', type: 'string' },
+        { name: 'zip', type: 'string' },
         { name: 'phone', type: 'string number' },
         { name: 'notes', type: 'string' },
         { name: 'location', type: 'array string' }

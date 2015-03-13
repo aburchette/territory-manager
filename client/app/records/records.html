@@ -1,22 +1,32 @@
 <div class="container">
   <h3>Records View</h3>
 
-  <p>
-    <strong>Filters:</strong>
-
-    <span>Name: </span>
-    <input type="text" placeholder="name" ng-model="nameFilter" />
-
-    <span>Address: </span>
-    <input type="text" placeholder="address" ng-model="addressFilter" />
-  </p>
-
   <div ng-if="records">
+    <div class="pagination">
+      <ul>
+        <li>
+          <a href ng-click="setPage(0)">&lt;&lt;&lt;</a>
+        </li>
+        <li ng-class="prevPageDisabled()">
+          <a href ng-click="prevPage()">&lt;&lt;</a>
+        </li>
+        <li ng-repeat="n in range()" ng-class="{ active: n == page }" ng-click="setPage(n)">
+          <a href="#">{{ n + 1 }}</a>
+        </li>
+        <li ng-class="nextPageDisabled()">
+          <a href ng-click="nextPage()">&gt;&gt;</a>
+        </li>
+        <li>
+          <a href ng-click="setPage(countPages())">&gt;&gt;&gt;</a>
+        </li>
+      </ul>
+    </div>
+
     <table class="table table-striped table-small table-bordered table-responsive">
       <tr>
         <th><a href="#" ng-click="setOrder('active')">Active</a></th>
-        <th><a href="#" ng-click="setOrder('name')">Name</a></th>
-        <th><a href="#" ng-click="setOrder('address')">Address</a></th>
+        <th><a href="#" ng-click="setOrder('name')">Name</a> <input size="10" type="text" placeholder="filter" ng-model="nameFilter" /></th>
+        <th><a href="#" ng-click="setOrder('address')">Address</a> <input size="10" type="text" placeholder="filter" ng-model="addressFilter" /></th>
         <th><a href="#" ng-click="setOrder('address2')">Unit</a></th>
         <th><a href="#" ng-click="setOrder('city')">City</a></th>
         <th><a href="#" ng-click="setOrder('state')">State</a></th>
@@ -24,7 +34,7 @@
         <th><a href="#" ng-click="setOrder('notes')">Notes</a></th>
       </tr>
 
-      <tr ng-repeat="record in records | filter:{'address':addressFilter} | orderBy:orderRecords | limitTo:20">
+      <tr ng-repeat="record in records | filter:{'name':nameFilter} | filter:{'address':addressFilter} | orderBy:orderRecords | offset:perPage * page | limitTo:perPage">
         <td>{{ record.active }}</td>
         <td>{{ record.name }}</td>
         <td>{{ record.address }}</td>
@@ -35,5 +45,6 @@
         <td>{{ record.notes }}</td>
       </tr>
     </table>
+
   </div>
 </div>
